@@ -10,6 +10,7 @@ jobs:
         run: |
           pwd
           ls
+          env
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout

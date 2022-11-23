@@ -12,6 +12,8 @@ jobs:
           ls
           env
           echo $GITHUB_REF_NAME
+          IFS='-' read -r -a array <<< "$GITHUB_REF_NAME"
+          echo array[0]
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout

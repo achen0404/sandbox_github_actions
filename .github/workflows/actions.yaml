@@ -8,14 +8,15 @@ jobs:
     steps: 
       - name: list files  # by default github will not clone your repo into your working directory. because not all workflows will use the files in the repository. inorder to clone we can use an action to do it 
         run: |
-          pwd
-          ls
-          env
+          # pwd
+          # ls
+          # env
           echo $GITHUB_REF_NAME
           IFS='-' read -r -a array <<< "$GITHUB_REF_NAME"
           echo "${array[0]}"
-          $BRANCH_IDENTIFIER="${array[0]}"
-          echo this is branch identifier $BRANCH_IDENTIFIER
+          # $BRANCH_IDENTIFIER="${array[0]}"
+          echo "BRANCH_IDENTIFIER=${array[0]}" >> $GITHUB_ENV
+          echo this is branch identifier
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout

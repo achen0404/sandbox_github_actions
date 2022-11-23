@@ -23,10 +23,11 @@ jobs:
           branch=${raw##*/}
           echo "branch=$branch" >> $GITHUB_OUTPUT
           echo "Branch is $branch."
-          if $branch == "master"
-            echo "this is master"
-          else 
-            echo "this is not master"
+          echo $0
+          # if $branch == "master"
+          #   echo "this is master"
+          # else 
+          #   echo "this is not master"
 
   job2:
     runs-on: ubuntu-latest

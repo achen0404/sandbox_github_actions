@@ -11,6 +11,7 @@ jobs:
           pwd
           ls
           env
+          echo $GITHUB_REF_NAME
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout

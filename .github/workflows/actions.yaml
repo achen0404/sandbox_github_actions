@@ -23,5 +23,9 @@ jobs:
           who-to-greet: amber
       - name: log greeting time
         run: echo "${{ steps.greet123.outputs.time }}"  #uses the id of steps, it will echo output of this action
-      - name: echo branch name
-        run: echo "${{ github.event.pull_request.head.ref }}"  #uses the id of steps, it will echo output of this action
+      - name: Get Branch
+        run: |
+          raw=$(git branch -r --contains ${{ github.ref }})
+          branch=${raw/origin\/}
+          echo ::set-env name=BRANCH::$branch
+      - run: echo ${{ env.BRANCH }}

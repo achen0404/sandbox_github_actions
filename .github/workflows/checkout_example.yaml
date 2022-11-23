@@ -5,6 +5,9 @@ on:
     tags:
       - "*"
 
+env:
+  EXAMPLE_VARIABLE: test1234
+
 jobs:
   check:
     runs-on: ubuntu-latest

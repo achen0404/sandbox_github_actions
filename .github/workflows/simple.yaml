@@ -1,4 +1,4 @@
-name: Shell Commands # name of the workflow 
+name: Shell Commands - workflow 1 # name of the workflow 
 
 on: [push]   #events that will trigger this workflow to happen 
 
@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string 
-        run: eccho "hello world"
+        run: echo "hello world"
       - name: multiline script 
         run: |
           node -v
           npm -v
+      - name: python command 
+        run: |
+          import platform 
+          print(platform.processor())
 

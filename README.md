@@ -9,3 +9,5 @@
 - any machine with the github action runner application installed 
 - a runner is responsible for running you jobs whenever an event happens and displays back the result 
 
+# debug actions - https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging
+- set secrets 

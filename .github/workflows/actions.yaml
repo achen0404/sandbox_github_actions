@@ -6,7 +6,13 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps: 
-      - name: list files
+      - name: list files  # by default github will not clone your repo into your working directory. because not all workflows will use the files in the repository. inorder to clone we can use an action to do it 
+        run: |
+          pwd
+          ls
+      - name: clone repo to gibhub actions 
+        uses: actions/checkout@v3
+      - name: list files after checkout
         run: |
           pwd
           ls

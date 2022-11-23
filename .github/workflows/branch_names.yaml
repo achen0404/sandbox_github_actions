@@ -1,4 +1,4 @@
-name: Example
+name: Branch_Name_check
 
 on: [push]   
 

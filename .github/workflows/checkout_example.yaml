@@ -21,8 +21,12 @@ jobs:
         run: |
           raw=$(git branch -r --contains ${{ github.ref }})
           branch=${raw##*/}
-          echo "::set-output name=branch::$branch"
+          echo "branch=$branch" >> $GITHUB_OUTPUT
           echo "Branch is $branch."
+          if $branch == "master"
+            echo "this is master"
+          else 
+            echo "this is not master"
 
   job2:
     runs-on: ubuntu-latest

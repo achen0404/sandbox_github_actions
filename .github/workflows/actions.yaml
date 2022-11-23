@@ -1,4 +1,4 @@
-name: Actions - workflow 2 # name of the workflow 
+name: github_actions
 
 on: [push]   
 
@@ -14,6 +14,8 @@ jobs:
           echo $GITHUB_REF_NAME
           IFS='-' read -r -a array <<< "$GITHUB_REF_NAME"
           echo "${array[0]}"
+          $BRANCH_IDENTIFIER="${array[0]}"
+          echo this is branch identifier $BRANCH_IDENTIFIER
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout

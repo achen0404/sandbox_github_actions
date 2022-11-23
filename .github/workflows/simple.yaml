@@ -1,0 +1,16 @@
+name: Shell Commands # name of the workflow 
+
+on: [push]   #events that will trigger this workflow to happen 
+
+
+jobs: 
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string 
+        run: echo "hello world"
+      - name: multiline script 
+        run: |
+          node -v
+          npm-v
+          

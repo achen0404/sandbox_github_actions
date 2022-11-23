@@ -1,0 +1,15 @@
+name: Actions - workflow 2 # name of the workflow 
+
+on: [push]   
+
+jobs: 
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - id: greet123 # uses id to reference steps 
+        name: simple js actions
+        uses: actions/hello-world-javascript-action@v1 # we can use actions written locally or actions publicshed on github repo https://github.com/actions/hello-world-javascript-action or actions/hello-world-javascript-action@master
+        with: # provide input to this action
+          who-to-greet: amber
+      - name: log greeting time
+        run: echo "${{ steps.greet123.outputs.time }}"  #uses the id of steps, it will echo output of this action

@@ -1,9 +1,6 @@
 name: Example
 
-on:
-  push:
-    tags:
-      - "*"
+on: [push]   
 
 env:
   EXAMPLE_VARIABLE: test1234

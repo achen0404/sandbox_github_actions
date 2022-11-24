@@ -11,3 +11,6 @@
 
 # debug actions - https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging
 - set secrets 
+
+# matrix strategy - https://www.youtube.com/watch?v=MBpyouQtY_M
+- use a single job definition and variables to spawn multiple jobs that are based on a combination of those variables 

@@ -1,4 +1,4 @@
-name: MultiCommands_test
+name: example_1_multi_commands
 
 on: [push]   #events that will trigger this workflow to happen 
 

@@ -1,4 +1,4 @@
-name: github_actions
+name: example_3_actions
 
 on: [push]   
 

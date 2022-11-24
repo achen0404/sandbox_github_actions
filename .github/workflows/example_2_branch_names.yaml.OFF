@@ -1,4 +1,4 @@
-name: Branch_Name_check
+name: example_2_branch_names
 
 on: [push]   
 

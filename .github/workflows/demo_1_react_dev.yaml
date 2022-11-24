@@ -1,0 +1,33 @@
+name: demo_1_react_pr_dev_ci 
+
+on: 
+  pull_request:
+    branches: [dev]
+  push:
+    branches: [dev]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: use Nodejs
+        uses: actions/setup-node@v1
+        with: 
+          node-version: "12.x"
+      - run: npm ci 
+      - run: npm test -- --coverage
+        env: 
+          CI: true 
+      # build the project and only run this step if it's a push event and not a pull request event 
+      #  if its a pull request it meeans its not ready yet but if it's push it means its approved and deploy code 
+      - name: build project 
+        if: github.event_name == 'push'
+        run: npm run build
+      #  after building
+      - name: deploy to staging
+        if: github.event_name == 'push'
+        run: |
+          echo 'deploying to staging ....'
+
+

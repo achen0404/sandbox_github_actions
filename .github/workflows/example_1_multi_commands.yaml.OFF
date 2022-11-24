@@ -1,4 +1,4 @@
-name: Shell Commands - workflow 1 # name of the workflow 
+name: example_1_multi_commands
 
 on: [push]   #events that will trigger this workflow to happen 
 

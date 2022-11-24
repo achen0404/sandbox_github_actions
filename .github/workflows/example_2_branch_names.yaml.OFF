@@ -1,4 +1,4 @@
-name: Example
+name: example_2_branch_names
 
 on: [push]   
 

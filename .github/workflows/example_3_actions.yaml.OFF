@@ -1,4 +1,4 @@
-name: Actions - workflow 2 # name of the workflow 
+name: example_3_actions
 
 on: [push]   
 
@@ -6,17 +6,29 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps: 
-      - name: list files  # by default github will not clone your repo into your working directory. because not all workflows will use the files in the repository. inorder to clone we can use an action to do it 
+      - name: Set ENVs  # by default github will not clone your repo into your working directory. because not all workflows will use the files in the repository. inorder to clone we can use an action to do it 
         run: |
-          pwd
-          ls
-          env
+          # pwd
+          # ls
+          # env
+          echo $GITHUB_REF_NAME
+          IFS='-' read -r -a array <<< "$GITHUB_REF_NAME"
+          echo "${array[0]}"
+          # $BRANCH_IDENTIFIER="${array[0]}"
+          echo "BRANCH_IDENTIFIER=${array[0]}" >> $GITHUB_ENV
+          # echo this is branch identifier "${{ env.BRANCH_IDENTIFIER }}"
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.BRANCH_IDENTIFIER }}" # This will output 'branch'
+          
       - name: clone repo to gibhub actions 
         uses: actions/checkout@v3
       - name: list files after checkout
         run: |
           pwd
           ls
+          env
       - id: greet123 # uses id to reference steps 
         name: simple js actions
         uses: actions/hello-world-javascript-action@v1 # we can use actions written locally or actions publicshed on github repo https://github.com/actions/hello-world-javascript-action or actions/hello-world-javascript-action@master
